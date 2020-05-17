@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,29 +6,16 @@ import {
   View,
   Text,
   StatusBar,
-} from 'react-native';
+  Button
+} from 'react-native'
+import { bootstap } from './src/bootstrap';
+import AppNavigator from './src/navigation/AppNavigation'
 
 const App = () => {
-  const { view, text } = styles
+
   return (
-    <View style={view}>
-      <Text style={text}>
-        Hello
-      </Text>
-    </View>
+    <AppNavigator />
   )
 }
 
-export default App;
-
-const styles = StyleSheet.create({
-  view: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  text: {
-    fontSize: 20,
-    fontFamily: 'OpenSans-Light'
-  }
-})
+export default App
