@@ -1,18 +1,18 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, Button } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
 
-export const PostScreen = ({ }) => {
+export const PostScreen = ({ navigation }) => {
     const { view, text } = styles
+
     return (
         <View style={view}>
             <Text style={text}>PostScreen</Text>
+            <Button title="Push Post ...again" onPress={() => navigation.push('postScreen')} />
         </View>
     )
 }
 
-PostScreen.navigationOptions = {
-    headerTitle: '1234'
-}
 
 const styles = StyleSheet.create({
     view: {

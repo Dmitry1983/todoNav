@@ -4,17 +4,22 @@ import { Text, View, StyleSheet, Button } from 'react-native'
 export const MainScreen = ({ navigation }) => {
     const { view, text } = styles
 
-    const goToPost = () => {
-        navigation.navigate('postScreen')
-    }
+    React.useEffect(() => {
+        navigation.setOptions({ title: 'Updated!' })
+    })
+
     return (
         <View style={view}>
             <Text style={text}>MainScreen</Text>
-            <Button title='Post' onPress={goToPost} />
+            <Button title='Post' onPress={() => navigation.navigate('postScreen')} />
+            <Button title="Push Main" onPress={() => navigation.push('mainScreen')} />
+            <Button
+                title="Update the title"
+                onPress={() => navigation.setOptions({ title: 'Updated!' })}
+            />
         </View>
     )
 }
-
 
 
 const styles = StyleSheet.create({

@@ -1,15 +1,10 @@
 import * as React from 'react'
-import { Animated } from 'react-native'
+import { Button } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { MainScreen } from '../screens/MainScreen'
 import { PostScreen } from '../screens/PostScreen';
-
-const forFade = ({ current, closing }) => ({
-    cardStyle: {
-        opacity: current.progress,
-    },
-});
+import { THEME } from '../theme'
 
 const Stack = createStackNavigator();
 
@@ -20,7 +15,9 @@ function StackNavigator() {
             headerMode="screen"
             screenOptions={{
                 headerTintColor: 'white',
-                headerStyle: { backgroundColor: 'tomato' },
+                headerStyle: {
+                    backgroundColor: THEME.COLOR.MAIN_2,
+                },
             }}
         >
             <Stack.Screen
@@ -28,21 +25,23 @@ function StackNavigator() {
                 component={MainScreen}
                 options={{
                     title: 'Main Screen',
-                    headerTintColor: 'white',
+                    //headerTintColor: 'white',
                     headerStyle: { backgroundColor: 'grey' },
-
-
+                    // headerRight: () => (
+                    //     <Button
+                    //         onPress={() => alert('This is a button!')}
+                    //         title="Info"
+                    //         color="black"
+                    //     />
+                    // ),
                 }}
             />
             <Stack.Screen
                 name="postScreen"
                 component={PostScreen}
                 options={{
-                    //title: 'Post Screen',
-                    headerTintColor: 'white',
-                    // headerStyle: { backgroundColor: 'grey' },
-                    // cardStyleInterpolator: forFade,
-
+                    title: 'Post Screen',
+                    //headerTintColor: 'white',
                 }}
             />
         </Stack.Navigator>
