@@ -9,6 +9,7 @@ import {
     Alert
 } from 'react-native'
 import { THEME } from '../theme'
+import { UnicButton } from '../components/UnicButton';
 
 const createTwoButtonAlert = () =>
     Alert.alert(
@@ -47,7 +48,8 @@ export const PostScreen = ({ navigation, route }) => {
                 <Text style={text}>{post.text.repeat(100)}</Text>
             </ScrollView>
             <View style={buttonView}>
-                <Button title='DELETE' onPress={createTwoButtonAlert} />
+                {/* <Button title='DELETE' onPress={createTwoButtonAlert} /> */}
+                <UnicButton title='DELETE' onPress={createTwoButtonAlert} />
             </View>
 
             {/* <Button title="Push Post ...again" onPress={() => navigation.push('postScreen')} /> */}
@@ -71,7 +73,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 300,
     },
-    buttonView:{
-        paddingBottom:10,
+    buttonView: {
+        paddingBottom: 10,
     }
 })
