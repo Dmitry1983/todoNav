@@ -39,14 +39,14 @@ export const PostScreen = ({ navigation, route }) => {
         console.log('Open postScreen ' + post.text)
     })
 
-    const { view, text, image } = styles
+    const { view, text, image, buttonView } = styles
     return (
         <SafeAreaView style={view}>
             <Image source={{ uri: post.img }} style={image} />
             <ScrollView style={{ margin: 10, }}>
                 <Text style={text}>{post.text.repeat(100)}</Text>
             </ScrollView>
-            <View>
+            <View style={buttonView}>
                 <Button title='DELETE' onPress={createTwoButtonAlert} />
             </View>
 
@@ -70,5 +70,8 @@ const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: 300,
+    },
+    buttonView:{
+        paddingBottom:10,
     }
 })
