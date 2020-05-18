@@ -39,7 +39,7 @@ function StackNavigator() {
                         <UnicButton
                             onPress={() => alert('This is a button!')}
                             title="Left"
-                            color="black"
+                            color="white"
                         />
                     ),
                 }}
