@@ -15,6 +15,7 @@ function StackNavigator() {
             headerMode="screen"
             screenOptions={{
                 headerTintColor: 'white',
+                //headerStatusBarHeight: 60,
                 headerStyle: {
                     backgroundColor: THEME.COLOR.MAIN_2,
                 },
@@ -27,13 +28,20 @@ function StackNavigator() {
                     title: 'Main Screen',
                     //headerTintColor: 'white',
                     headerStyle: { backgroundColor: 'grey' },
-                    // headerRight: () => (
-                    //     <Button
-                    //         onPress={() => alert('This is a button!')}
-                    //         title="Info"
-                    //         color="black"
-                    //     />
-                    // ),
+                    headerRight: () => (
+                        <Button
+                            onPress={() => alert('This is a button!')}
+                            title="R"
+                            color="black"
+                        />
+                    ),
+                    headerLeft: () => (
+                        <Button
+                            onPress={() => alert('This is a button!')}
+                            title="L"
+                            color="black"
+                        />
+                    ),
                 }}
             />
             <Stack.Screen
@@ -42,6 +50,13 @@ function StackNavigator() {
                 options={{
                     title: 'Post Screen',
                     //headerTintColor: 'white',
+                    headerRight: () => (
+                        <Button
+                            onPress={() => alert('This is a button!')}
+                            title="Info"
+                            color="black"
+                        />
+                    ),
                 }}
             />
         </Stack.Navigator>

@@ -1,22 +1,39 @@
 import React from 'react'
-import { Text, View, StyleSheet, Button } from 'react-native'
+import { Text, View, StyleSheet, Button, FlatList } from 'react-native'
+import { DATA } from '../data'
+import { Post } from '../components/Post'
 
 export const MainScreen = ({ navigation }) => {
-    const { view, text } = styles
+    const { view, flatList } = styles
 
     React.useEffect(() => {
-        navigation.setOptions({ title: 'Updated!' })
+        //navigation.setOptions({ title: 'Updated!' })
+        console.log('Open mainScreen ')
     })
+
+    const openPostHandler = (post) => {
+        navigation.navigate('postScreen', { post: post })
+    }
+
+
 
     return (
         <View style={view}>
-            <Text style={text}>MainScreen</Text>
+            <FlatList
+                style={flatList}
+                data={DATA}
+                keyExtractor={post => post.id.toString()}
+                renderItem={({ item }) => <Post post={item} onOpen={openPostHandler} />}
+            //renderItem={({ item }) => <Item title={item.text} />}
+
+            />
+            {/* <Text style={text}>MainScreen</Text>
             <Button title='Post' onPress={() => navigation.navigate('postScreen')} />
             <Button title="Push Main" onPress={() => navigation.push('mainScreen')} />
             <Button
                 title="Update the title"
                 onPress={() => navigation.setOptions({ title: 'Updated!' })}
-            />
+            /> */}
         </View>
     )
 }
@@ -26,10 +43,9 @@ const styles = StyleSheet.create({
     view: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
-    text: {
-        fontSize: 20,
-        fontFamily: 'OpenSans-Light'
+    flatList: {
+        width: '100%'
     }
 })
