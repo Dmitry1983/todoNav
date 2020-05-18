@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Button } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { MainScreen } from '../screens/MainScreen'
 import { PostScreen } from '../screens/PostScreen';
 import { THEME } from '../theme'
+import { UnicButton } from '../components/UnicButton'
 
 const Stack = createStackNavigator();
 
@@ -29,16 +29,16 @@ function StackNavigator() {
                     //headerTintColor: 'white',
                     headerStyle: { backgroundColor: 'grey' },
                     headerRight: () => (
-                        <Button
+                        <UnicButton
                             onPress={() => alert('This is a button!')}
-                            title="R"
+                            title="Right"
                             color="black"
                         />
                     ),
                     headerLeft: () => (
-                        <Button
+                        <UnicButton
                             onPress={() => alert('This is a button!')}
-                            title="L"
+                            title="Left"
                             color="black"
                         />
                     ),
@@ -51,10 +51,10 @@ function StackNavigator() {
                     title: 'Post Screen',
                     //headerTintColor: 'white',
                     headerRight: () => (
-                        <Button
+                        <UnicButton
                             onPress={() => alert('This is a button!')}
                             title="Info"
-                            color="black"
+                            color="white"
                         />
                     ),
                 }}

@@ -17,6 +17,12 @@ export const Post = ({ post, onOpen }) => {
                         </Text>
                     </View>
 
+                    <View style={textWrap}>
+                        <Text style={textTitle}>
+                            {post.text}
+                        </Text>
+                    </View>
+
                 </ImageBackground>
             </TouchableOpacity>
         </View>
@@ -48,6 +54,7 @@ const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: 300,
-        flexDirection: 'column-reverse'
+        flexDirection: 'column-reverse',
+        justifyContent: 'space-between',
     }
 })
