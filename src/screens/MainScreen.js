@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, Button, FlatList } from 'react-native'
+import { Text, View, StyleSheet, Button, FlatList, SafeAreaView } from 'react-native'
 import { DATA } from '../data'
 import { Post } from '../components/Post'
 
@@ -18,7 +18,7 @@ export const MainScreen = ({ navigation }) => {
 
 
     return (
-        <View style={view}>
+        <SafeAreaView style={view}>
             <FlatList
                 style={flatList}
                 data={DATA}
@@ -34,7 +34,7 @@ export const MainScreen = ({ navigation }) => {
                 title="Update the title"
                 onPress={() => navigation.setOptions({ title: 'Updated!' })}
             /> */}
-        </View>
+        </SafeAreaView>
     )
 }
 
