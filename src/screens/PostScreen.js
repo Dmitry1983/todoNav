@@ -37,7 +37,7 @@ export const PostScreen = ({ navigation, route }) => {
     React.useEffect(() => {
         //navigation.setOptions({ title: post.text })
         navigation.setOptions({ title: new Date(post.date).toLocaleDateString() })
-        console.log('Open postScreen' + post.text)
+        console.log('Open postScreen :' + post.id)
     })
 
     const { view, text, image, buttonView } = styles
