@@ -17,12 +17,14 @@ const styles = StyleSheet.create({
 
 
     text: {
-        padding: 10,
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft:15,
+        paddingRight:15,
         textAlign: 'center',
         fontFamily: THEME.FONT.Open_REG,
         color: THEME.COLOR.BLUE_IOS_BUTTON,
-        fontSize: Platform.OS === 'ios' ? 19 : 16
-
+        fontSize: Platform.OS === 'ios' ? 19 : 19
 
     }
 
