@@ -3,7 +3,7 @@ import {
     Text,
     View,
     StyleSheet,
-    Button, Image,
+    ImageBackground,
     ScrollView,
     SafeAreaView,
     Alert
@@ -33,22 +33,34 @@ const createTwoButtonAlert = () =>
 export const PostScreen = ({ navigation, route }) => {
     const post = route.params.post
     //console.log(post.text)
+    const postDate = new Date(post.date).toLocaleDateString()
 
     React.useEffect(() => {
         //navigation.setOptions({ title: post.text })
-        navigation.setOptions({ title: new Date(post.date).toLocaleDateString() })
+        
+        navigation.setOptions({ title:'Post from '+postDate })
         console.log('Open postScreen :' + post.id)
     })
 
-    const { view, text, image, buttonView } = styles
+    const { view, text, image, buttonView, textWrap, textTitle } = styles
     return (
         <SafeAreaView style={view}>
-            <Image source={{ uri: post.img }} style={image} />
+            {/* <Image source={{ uri: post.img }} style={image} /> */}
+            <ImageBackground
+            source={{ uri: post.img }} style={image}
+            >
+                <View style={textWrap}>
+                    <Text style={textTitle}>{postDate}</Text>
+                    <Text style={textTitle}>{post.booked?1:0}</Text>
+                </View>
+
+            </ImageBackground>
+
             <ScrollView style={{ margin: 10, }}>
                 <Text style={text}>{post.text.repeat(100)}</Text>
             </ScrollView>
+         
             <View style={buttonView}>
-                {/* <Button title='DELETE' onPress={createTwoButtonAlert} /> */}
                 <UnicButton title='DELETE' onPress={createTwoButtonAlert} />
             </View>
 
@@ -72,8 +84,23 @@ const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: 300,
+        flexDirection: 'column-reverse',
     },
     buttonView: {
         paddingBottom: 10,
-    }
+    },
+    textWrap: {
+        backgroundColor: 'rgba(0,0,0,0.5)',
+        paddingVertical: 10,
+        flexDirection:'row-reverse',
+        alignItems: 'flex-end',
+        justifyContent:'space-between',
+        width: '100%',
+    },
+    textTitle: {
+        color: 'white',
+        fontFamily: THEME.FONT.Open_REG,
+        paddingHorizontal:15,
+        fontSize: 18,
+    },
 })

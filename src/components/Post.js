@@ -1,5 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, Text, ImageBackground, TouchableOpacity } from 'react-native'
+import {
+    StyleSheet, 
+    View,
+    Text, 
+    ImageBackground, 
+    TouchableOpacity 
+} from 'react-native'
 import { THEME } from '../theme'
 
 export const Post = ({ post, onOpen }) => {
@@ -15,6 +21,7 @@ export const Post = ({ post, onOpen }) => {
                         <Text style={textTitle}>
                             {new Date(post.date).toLocaleDateString()}
                         </Text>
+                        <Text style={textTitle}>{post.booked?1:2}</Text>
                     </View>
 
                     <View style={textWrap}>
@@ -33,20 +40,20 @@ const styles = StyleSheet.create({
     textTitle: {
         color: 'white',
         fontFamily: THEME.FONT.Open_REG,
-        paddingRight: 10,
+        paddingHorizontal:15,
         fontSize: 18,
     },
     textWrap: {
         backgroundColor: 'rgba(0,0,0,0.5)',
         paddingVertical: 5,
+        flexDirection:'row-reverse',
         alignItems: 'flex-end',
+        justifyContent:'space-between',
         width: '100%',
     },
     viewPost: {
-        marginTop: 10,
-        marginBottom: 5,
-        marginLeft: 10,
-        marginRight: 10,
+        marginVertical:2,
+        marginHorizontal:4,
         overflow: 'hidden',
         //width: '100%',
 
