@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View, StyleSheet, Button, FlatList, SafeAreaView } from 'react-native'
 import { DATA } from '../data'
 import { Post } from '../components/Post'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const MainScreen = ({ navigation }) => {
     const { view, flatList } = styles
@@ -34,6 +35,7 @@ export const MainScreen = ({ navigation }) => {
                 title="Update the title"
                 onPress={() => navigation.setOptions({ title: 'Updated!' })}
             /> */}
+            <Icon name="md-add-circle" size={50} color="#900" />
         </SafeAreaView>
     )
 }
