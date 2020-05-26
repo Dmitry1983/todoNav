@@ -1,15 +1,28 @@
 import React from 'react'
 import {
-    StyleSheet, 
+    StyleSheet,
     View,
-    Text, 
-    ImageBackground, 
-    TouchableOpacity 
+    Text,
+    ImageBackground,
+    TouchableOpacity
 } from 'react-native'
 import { THEME } from '../theme'
+import Icon from 'react-native-vector-icons/Ionicons'
+import { AppHeaderIcon } from '../components/AppHeaderIcon'
 
 export const Post = ({ post, onOpen }) => {
     const { textTitle, viewPost, image, textWrap } = styles
+
+    const Star = ({ name }) => {
+        return (
+            <AppHeaderIcon
+                onPress={() => { }}
+                iconName={name}
+                color="white"
+                size={25}
+            />
+        )
+    }
     return (
         <View style={viewPost}>
             <TouchableOpacity activeOpacity={0.7} onPress={() => onOpen(post)}>
@@ -21,7 +34,10 @@ export const Post = ({ post, onOpen }) => {
                         <Text style={textTitle}>
                             {new Date(post.date).toLocaleDateString()}
                         </Text>
-                        <Text style={textTitle}>{post.booked?1:2}</Text>
+                        {/* <Text style={textTitle}>
+                            {post.booked ? 2 : 1}
+                        </Text> */}
+                        {post.booked ? <Star name="ios-heart" /> : <Star name="ios-heart-empty" />}
                     </View>
 
                     <View style={textWrap}>
@@ -40,20 +56,20 @@ const styles = StyleSheet.create({
     textTitle: {
         color: 'white',
         fontFamily: THEME.FONT.Open_REG,
-        paddingHorizontal:15,
+        paddingHorizontal: 15,
         fontSize: 18,
     },
     textWrap: {
         backgroundColor: 'rgba(0,0,0,0.5)',
         paddingVertical: 5,
-        flexDirection:'row-reverse',
+        flexDirection: 'row-reverse',
         alignItems: 'flex-end',
-        justifyContent:'space-between',
+        justifyContent: 'space-between',
         width: '100%',
     },
     viewPost: {
-        marginVertical:2,
-        marginHorizontal:4,
+        marginVertical: 0,
+        marginHorizontal: 0,
         overflow: 'hidden',
         //width: '100%',
 

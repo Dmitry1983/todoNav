@@ -2,6 +2,8 @@ export const THEME = {
     COLOR: {
         DANGER: '#e53935',
         GREY: '#757575',
+        BLACK: 'black',
+        WHITE: 'white',
         MAIN: '#3949c1',
         MAIN_2: '#0075c4',
         BLUE_BUTTON: '#3794f5',

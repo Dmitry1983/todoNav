@@ -1,10 +1,11 @@
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { MainScreen } from '../screens/MainScreen'
-import { PostScreen } from '../screens/PostScreen';
+import { PostScreen } from '../screens/PostScreen'
 import { THEME } from '../theme'
-import { UnicButton } from '../components/UnicButton'
+import { AppHeaderIcon } from '../components/AppHeaderIcon'
 
 const Stack = createStackNavigator();
 
@@ -29,18 +30,22 @@ function StackNavigator() {
                     //headerTintColor: 'white',
                     headerStyle: { backgroundColor: 'grey' },
                     headerRight: () => (
-                        <UnicButton
-                            onPress={() => alert('This is a button!')}
-                            title="Right"
-                            color="black"
+                        <AppHeaderIcon
+                            onPress={() => alert('Add press button!')}
+                            iconName="ios-camera"
+                            color="white"
+                            size={45}
                         />
+
                     ),
                     headerLeft: () => (
-                        <UnicButton
-                            onPress={() => alert('This is a button!')}
-                            title="Left"
+                        <AppHeaderIcon
+                            onPress={() => alert('Menu press button!')}
+                            iconName="ios-menu"
                             color="white"
+                            size={45}
                         />
+
                     ),
                 }}
             />
@@ -49,14 +54,7 @@ function StackNavigator() {
                 component={PostScreen}
                 options={{
                     title: 'Post Screen',
-                    //headerTintColor: 'white',
-                    headerRight: () => (
-                        <UnicButton
-                            onPress={() => alert('This is a button!')}
-                            title="Info"
-                            color="white"
-                        />
-                    ),
+                    headerTintColor: 'white',
                 }}
             />
         </Stack.Navigator>

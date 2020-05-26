@@ -10,6 +10,7 @@ import {
 } from 'react-native'
 import { THEME } from '../theme'
 import { UnicButton } from '../components/UnicButton';
+import { AppHeaderIcon } from '../components/AppHeaderIcon'
 
 const createTwoButtonAlert = () =>
     Alert.alert(
@@ -34,24 +35,35 @@ export const PostScreen = ({ navigation, route }) => {
     const post = route.params.post
     //console.log(post.text)
     const postDate = new Date(post.date).toLocaleDateString()
+    const booked = post.booked ? "ios-heart" : "ios-heart-empty"
 
     React.useEffect(() => {
         //navigation.setOptions({ title: post.text })
-        
-        navigation.setOptions({ title:'Post from '+postDate })
+
+        navigation.setOptions({
+            title: 'Post from ' + postDate,
+            headerRight: () => (
+                <AppHeaderIcon
+                    onPress={() => alert('Star press button!')}
+                    iconName={booked}
+                    color="white"
+                    size={30}
+                />
+            ),
+        })
         console.log('Open postScreen :' + post.id)
-    })
+    }, [])
 
     const { view, text, image, buttonView, textWrap, textTitle } = styles
     return (
         <SafeAreaView style={view}>
             {/* <Image source={{ uri: post.img }} style={image} /> */}
             <ImageBackground
-            source={{ uri: post.img }} style={image}
+                source={{ uri: post.img }} style={image}
             >
                 <View style={textWrap}>
                     <Text style={textTitle}>{postDate}</Text>
-                    <Text style={textTitle}>{post.booked?1:0}</Text>
+                    <Text style={textTitle}>{post.booked ? 1 : 0}</Text>
                 </View>
 
             </ImageBackground>
@@ -59,7 +71,7 @@ export const PostScreen = ({ navigation, route }) => {
             <ScrollView style={{ margin: 10, }}>
                 <Text style={text}>{post.text.repeat(100)}</Text>
             </ScrollView>
-         
+
             <View style={buttonView}>
                 <UnicButton title='DELETE' onPress={createTwoButtonAlert} />
             </View>
@@ -92,15 +104,15 @@ const styles = StyleSheet.create({
     textWrap: {
         backgroundColor: 'rgba(0,0,0,0.5)',
         paddingVertical: 10,
-        flexDirection:'row-reverse',
+        flexDirection: 'row-reverse',
         alignItems: 'flex-end',
-        justifyContent:'space-between',
+        justifyContent: 'space-between',
         width: '100%',
     },
     textTitle: {
         color: 'white',
         fontFamily: THEME.FONT.Open_REG,
-        paddingHorizontal:15,
+        paddingHorizontal: 15,
         fontSize: 18,
     },
 })
