@@ -99,7 +99,7 @@ function TabMainScreen() {
     )
 }
 
-function StackNavigator({ navigation }) {
+function StackNavigator() {
 
     return (
         <Stack.Navigator
@@ -123,7 +123,7 @@ function StackNavigator({ navigation }) {
                     headerStyle: { backgroundColor: 'grey' },
                     headerRight: () => (
                         <AppHeaderIcon
-                            onPress={() => navigation.openDrawer()}
+                            onPress={() => { }}
                             iconName="ios-camera"
                             color="white"
                             size={45}
