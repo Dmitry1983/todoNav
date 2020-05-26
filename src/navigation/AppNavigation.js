@@ -5,7 +5,6 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 
-
 import { MainScreen } from '../screens/MainScreen'
 import { PostScreen } from '../screens/PostScreen'
 import { BookedScreen } from '../screens/BookedScreen'
@@ -14,7 +13,6 @@ import { CreateScreen } from '../screens/CreateScreen'
 
 import Icon from 'react-native-vector-icons/Ionicons'
 import { THEME } from '../theme'
-import { AppHeaderIcon } from '../components/AppHeaderIcon'
 import { AppHeaderIconDrawer } from '../components/AppHeaderIconDrawer'
 import { AppHeaderIconCreater } from '../components/AppHeaderIconCreater'
 
@@ -123,29 +121,14 @@ function StackNavigator() {
                     //headerTintColor: 'white',
                     headerStyle: { backgroundColor: 'grey' },
                     headerRight: () => (
-                        // <AppHeaderIcon
-                        //     onPress={() => { }}
-                        //     iconName="ios-camera"
-                        //     color="white"
-                        //     size={45}
-                        // />
                         <AppHeaderIconCreater
-
                             iconName="ios-camera"
                             color="white"
                             size={45}
                         />
-
                     ),
                     headerLeft: () => (
-                        // <AppHeaderIcon
-                        //     onPress={() => { }}
-                        //     iconName="ios-menu"
-                        //     color="white"
-                        //     size={45}
-                        // />
                         <AppHeaderIconDrawer
-
                             iconName="ios-menu"
                             color="white"
                             size={45}
@@ -171,6 +154,14 @@ function StackNavigator() {
                     headerTintColor: 'white',
                 }}
             />
+            <Stack.Screen
+                name="aboutScreen"
+                component={AboutScreen}
+                options={{
+                    title: 'Create Screen',
+                    headerTintColor: 'white',
+                }}
+            />
 
 
         </Stack.Navigator>
@@ -182,8 +173,6 @@ export default function AppNavigation() {
     return (
         <NavigationContainer>
             <StackNavigator />
-            {/* <DrawerScreen /> */}
-            {/* <TabMainScreen /> */}
         </NavigationContainer>
     )
 }
