@@ -8,7 +8,7 @@ export const AppHeaderIconDrawer = ({ iconName, size, color }) => {
     const { button, icon } = styles
     const navigation = useNavigation();
     return (
-        <TouchableOpacity style={button} onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
+        <TouchableOpacity style={button} onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
             <Icon style={icon} name={iconName} size={size ? size : 40} color={color} />
         </TouchableOpacity>
     )
