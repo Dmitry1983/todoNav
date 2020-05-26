@@ -73,7 +73,7 @@ export const PostScreen = ({ navigation, route }) => {
             </ScrollView>
 
             <View style={buttonView}>
-                <UnicButton title='DELETE' onPress={createTwoButtonAlert} />
+                <UnicButton title='DELETE' onPress={createTwoButtonAlert} color={THEME.COLOR.BLUE_IOS_BUTTON} />
             </View>
 
             {/* <Button title="Push Post ...again" onPress={() => navigation.push('postScreen')} /> */}
