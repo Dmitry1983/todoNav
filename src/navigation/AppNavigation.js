@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { NavigationContainer, DrawerActions } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -14,6 +14,7 @@ import { CreateScreen } from '../screens/CreateScreen'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { THEME } from '../theme'
 import { AppHeaderIcon } from '../components/AppHeaderIcon'
+
 
 
 
