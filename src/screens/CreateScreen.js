@@ -6,7 +6,7 @@ export const CreateScreen = ({ navigation }) => {
     return (
         <View style={view}>
             <Text style={text}>CreateScreen</Text>
-            <Button title="Open drawer" onPress={() => navigation.openDrawer()} />
+
         </View>
     )
 }
