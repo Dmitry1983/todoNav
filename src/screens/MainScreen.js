@@ -36,7 +36,7 @@ export const MainScreen = ({ navigation }) => {
                 title="Update the title"
                 onPress={() => navigation.setOptions({ title: 'Updated!' })}
             /> */}
-            {/* <Icon name="md-add-circle" size={50} color="#900" /> */}
+
         </SafeAreaView>
     )
 }
