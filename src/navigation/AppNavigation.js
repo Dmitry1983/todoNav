@@ -1,16 +1,45 @@
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+
+import { NavigationContainer, DrawerActions } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import { MainScreen } from '../screens/MainScreen'
 import { PostScreen } from '../screens/PostScreen'
 import { BookedScreen } from '../screens/BookedScreen'
+import { AboutScreen } from '../screens/AboutScreen'
+import { CreateScreen } from '../screens/CreateScreen'
+
+import Icon from 'react-native-vector-icons/Ionicons'
 import { THEME } from '../theme'
 import { AppHeaderIcon } from '../components/AppHeaderIcon'
-import Icon from 'react-native-vector-icons/Ionicons'
 
+
+
+const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
+function DrawerScreen() {
+    return (
+        <Drawer.Navigator >
+            <Drawer.Screen
+                name="Posts"
+                component={TabMainScreen}
+            />
+            <Drawer.Screen
+                name="Add Posts"
+                component={CreateScreen}
+            />
+            <Drawer.Screen
+                name="About"
+                component={AboutScreen}
+            />
+        </Drawer.Navigator>
+    );
+}
+
 
 function TabMainScreen() {
     return (
@@ -20,10 +49,12 @@ function TabMainScreen() {
                     let iconName;
                     switch (route.name) {
                         case 'MainScreen':
-                            iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline'
+                            iconName = focused ? 'ios-albums' : 'ios-albums'
+
                             break
                         case 'BookedScreen':
-                            iconName = focused ? 'ios-list-box' : 'ios-list'
+                            iconName = focused ? 'ios-heart' : 'ios-heart'
+
                             break
                     }
                     return <Icon name={iconName} size={25} color={color} />
@@ -41,10 +72,11 @@ function TabMainScreen() {
 
                 },
                 labelStyle: {
-                    fontSize: 16,
+                    fontSize: 14,
 
                 },
                 tabStyle: {
+                    paddingTop: 5
 
                 }
             }}
@@ -53,21 +85,22 @@ function TabMainScreen() {
                 name="MainScreen"
                 component={MainScreen}
                 options={{
-                    title: 'Main screen'
+                    title: 'Posts'
                 }}
             />
             <Tab.Screen
                 name="BookedScreen"
                 component={BookedScreen}
                 options={{
-                    title: 'Booked screen'
+                    title: 'Booked'
                 }}
             />
         </Tab.Navigator>
     )
 }
 
-function StackNavigator() {
+function StackNavigator({ navigation }) {
+
     return (
         <Stack.Navigator
             initialRouteName="mainScreen"
@@ -83,14 +116,14 @@ function StackNavigator() {
             <Stack.Screen
                 name="mainScreen"
                 //component={MainScreen}
-                component={TabMainScreen}
+                component={DrawerScreen}
                 options={{
-                    title: 'Main Screen',
+                    title: 'Posts',
                     //headerTintColor: 'white',
                     headerStyle: { backgroundColor: 'grey' },
                     headerRight: () => (
                         <AppHeaderIcon
-                            onPress={() => alert('Add press button!')}
+                            onPress={() => navigation.openDrawer()}
                             iconName="ios-camera"
                             color="white"
                             size={45}
@@ -99,7 +132,7 @@ function StackNavigator() {
                     ),
                     headerLeft: () => (
                         <AppHeaderIcon
-                            onPress={() => alert('Menu press button!')}
+                            onPress={() => { }}
                             iconName="ios-menu"
                             color="white"
                             size={45}
@@ -116,7 +149,19 @@ function StackNavigator() {
                     headerTintColor: 'white',
                 }}
             />
+
+            <Stack.Screen
+                name="createScreen"
+                component={CreateScreen}
+                options={{
+                    title: 'Create Screen',
+                    headerTintColor: 'white',
+                }}
+            />
+
+
         </Stack.Navigator>
+
     )
 }
 
