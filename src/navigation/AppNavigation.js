@@ -3,7 +3,8 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer'
+
 
 import { MainScreen } from '../screens/MainScreen'
 import { PostScreen } from '../screens/PostScreen'
@@ -14,9 +15,8 @@ import { CreateScreen } from '../screens/CreateScreen'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { THEME } from '../theme'
 import { AppHeaderIcon } from '../components/AppHeaderIcon'
-
-
-
+import { AppHeaderIconDrawer } from '../components/AppHeaderIconDrawer'
+import { AppHeaderIconCreater } from '../components/AppHeaderIconCreater'
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -123,8 +123,14 @@ function StackNavigator() {
                     //headerTintColor: 'white',
                     headerStyle: { backgroundColor: 'grey' },
                     headerRight: () => (
-                        <AppHeaderIcon
-                            onPress={() => { }}
+                        // <AppHeaderIcon
+                        //     onPress={() => { }}
+                        //     iconName="ios-camera"
+                        //     color="white"
+                        //     size={45}
+                        // />
+                        <AppHeaderIconCreater
+
                             iconName="ios-camera"
                             color="white"
                             size={45}
@@ -132,8 +138,14 @@ function StackNavigator() {
 
                     ),
                     headerLeft: () => (
-                        <AppHeaderIcon
-                            onPress={() => { }}
+                        // <AppHeaderIcon
+                        //     onPress={() => { }}
+                        //     iconName="ios-menu"
+                        //     color="white"
+                        //     size={45}
+                        // />
+                        <AppHeaderIconDrawer
+
                             iconName="ios-menu"
                             color="white"
                             size={45}
@@ -170,6 +182,8 @@ export default function AppNavigation() {
     return (
         <NavigationContainer>
             <StackNavigator />
+            {/* <DrawerScreen /> */}
+            {/* <TabMainScreen /> */}
         </NavigationContainer>
     )
 }

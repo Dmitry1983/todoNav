@@ -7,7 +7,6 @@ import {
     TouchableOpacity
 } from 'react-native'
 import { THEME } from '../theme'
-import Icon from 'react-native-vector-icons/Ionicons'
 import { AppHeaderIcon } from '../components/AppHeaderIcon'
 
 export const Post = ({ post, onOpen }) => {

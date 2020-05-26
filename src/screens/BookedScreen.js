@@ -12,10 +12,6 @@ export const BookedScreen = ({ navigation }) => {
         navigation.navigate('postScreen', { post: post })
     }
     React.useEffect(() => {
-
-        // navigation.setOptions({
-        //     title: 'Booked Screen',
-        // })
         console.log('Open BookedScreen ')
     }, [])
 
@@ -39,7 +35,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: THEME.COLOR.GREY
+        backgroundColor: THEME.COLOR.BLACK
     },
     flatList: {
         width: '100%'

@@ -26,17 +26,7 @@ export const MainScreen = ({ navigation }) => {
                 data={DATA}
                 keyExtractor={post => post.id.toString()}
                 renderItem={({ item }) => <Post post={item} onOpen={openPostHandler} />}
-            //renderItem={({ item }) => <Item title={item.text} />}
-
             />
-            {/* <Text style={text}>MainScreen</Text>
-            <Button title='Post' onPress={() => navigation.navigate('postScreen')} />
-            <Button title="Push Main" onPress={() => navigation.push('mainScreen')} />
-            <Button
-                title="Update the title"
-                onPress={() => navigation.setOptions({ title: 'Updated!' })}
-            /> */}
-
         </SafeAreaView>
     )
 }
@@ -47,7 +37,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: THEME.COLOR.GREY
+        backgroundColor: THEME.COLOR.BLACK
     },
     flatList: {
         width: '100%'
