@@ -8,13 +8,17 @@ import {
   StatusBar,
   Button
 } from 'react-native'
+import { Provider } from 'react-redux'
+import store from './src/store'
 import { bootstap } from './src/bootstrap';
 import AppNavigator from './src/navigation/AppNavigation'
 
 const App = () => {
 
   return (
-    <AppNavigator />
+    <Provider store={store} >
+      <AppNavigator />
+    </Provider>
   )
 }
 
