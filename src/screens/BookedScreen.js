@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Text, View, StyleSheet, Button, FlatList, SafeAreaView } from 'react-native'
 import { DATA } from '../data'
+import {useDispatch, useSelector} from 'react-redux'
 import { Post } from '../components/Post'
 import { THEME } from '../theme'
-import Icon from 'react-native-vector-icons/Ionicons';
+import { loadPosts } from '../store/actions/postactions'
 
 export const BookedScreen = ({ navigation }) => {
     const { view, flatList } = styles
@@ -11,18 +12,21 @@ export const BookedScreen = ({ navigation }) => {
     const openPostHandler = (post) => {
         navigation.navigate('postScreen', { post: post })
     }
-    React.useEffect(() => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
         console.log('Open BookedScreen ')
-    }, [])
+        dispatch(loadPosts())
+    },[dispatch])
 
-
+    const bookedPosts = useSelector(state=>state.post.bookedPosts)
 
     return (
         <SafeAreaView style={view}>
             <FlatList
                 style={flatList}
-                data={DATA.filter(post => post.booked)}
-                keyExtractor={post => post.id.toString()}
+                data={bookedPosts}
+                //keyExtractor={post => post.id.toString()}
                 renderItem={({ item }) => <Post post={item} onOpen={openPostHandler} />}
             />
         </SafeAreaView>

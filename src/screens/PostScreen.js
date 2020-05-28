@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
     Text,
     View,
@@ -8,9 +8,11 @@ import {
     SafeAreaView,
     Alert
 } from 'react-native'
+import {useDispatch, useSelector} from 'react-redux'
 import { THEME } from '../theme'
 import { UnicButton } from '../components/UnicButton';
 import { AppHeaderIcon } from '../components/AppHeaderIcon'
+import { toggleBooked } from '../store/actions/postactions';
 
 const createTwoButtonAlert = () =>
     Alert.alert(
@@ -32,25 +34,32 @@ const createTwoButtonAlert = () =>
     );
 
 export const PostScreen = ({ navigation, route }) => {
+    const dispatch = useDispatch()
     const post = route.params.post
     //console.log(post.text)
     const postDate = new Date(post.date).toLocaleDateString()
     const booked = post.booked ? "ios-heart" : "ios-heart-empty"
 
-    React.useEffect(() => {
+    const toggleHandler =()=>{
+          dispatch(toggleBooked(post.id))
+    }
+
+    useEffect(() => {
         //navigation.setOptions({ title: post.text })
 
         navigation.setOptions({
             title: 'Post from ' + postDate,
             headerRight: () => (
                 <AppHeaderIcon
-                    onPress={() => alert('Star press button!')}
+                   // onPress={() => alert('Star press button!')}
+                    onPress={()=>toggleHandler()}
                     iconName={booked}
                     color="white"
                     size={30}
                 />
             ),
         })
+        
         console.log('Open postScreen :' + post.id)
     }, [])
 
