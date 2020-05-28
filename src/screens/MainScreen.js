@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Text, View, StyleSheet, Button, FlatList, SafeAreaView } from 'react-native'
 import { DATA } from '../data'
+// import 
 import { Post } from '../components/Post'
 import { THEME } from '../theme'
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -16,6 +17,10 @@ export const MainScreen = ({ navigation }) => {
     const openPostHandler = (post) => {
         navigation.navigate('postScreen', { post: post })
     }
+
+    useEffect(() => {
+
+    }, [])
 
 
 
