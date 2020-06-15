@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,20 +6,19 @@ import {
   View,
   Text,
   StatusBar,
-  Button
-} from 'react-native'
-import { Provider } from 'react-redux'
-import store from './src/store'
-import { bootstap } from './src/bootstrap';
-import AppNavigator from './src/navigation/AppNavigation'
+  Button,
+} from 'react-native';
+import {Provider} from 'react-redux';
+import store from './src/store';
+import {bootstap} from './src/bootstrap';
+import AppNavigator from './src/navigation/AppNavigation';
 
 const App = () => {
-
   return (
-    <Provider store={store} >
+    <Provider store={store}>
       <AppNavigator />
     </Provider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
